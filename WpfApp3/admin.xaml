@@ -1,0 +1,92 @@
+﻿<Window x:Class="WpfApp3.admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="admin" Height="500" Width="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.ColumnSpan="2">
+            <TabItem Header="Роли">
+                <Grid Background="#FFE5E5E5" Width="902">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dg_Role" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="dg_Role_SelectionChanged"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Название" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1"/>
+                    <TextBox x:Name="tb_Role" HorizontalAlignment="Center" Margin="0,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <Button Content="Создать" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Bottom" Width="88" Click="Button_Click_Create_Role" Grid.Column="1"/>
+                    <Button Content="Удалить" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Delete_Role"/>
+                    <Button Content="Изменить" HorizontalAlignment="Right" Margin="182,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Update_Role"/>
+                    <Button x:Name="Upload_Btn" Content="Выгрузить данные" Margin="0,404,0,0" VerticalAlignment="Bottom" Click="Upload_Btn_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Сотрудники">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dg_Emloyee" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="dg_Emloyee_SelectionChanged"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1"/>
+                    <TextBox x:Name="tb_Emloyee" HorizontalAlignment="Center" Margin="0,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <Button Content="Создать" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Bottom" Width="88" Click="Button_Click_Create_Emloyee" Grid.Column="1"/>
+                    <Button Content="Удалить" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Delete_Emloyee"/>
+                    <Button Content="Изменить" HorizontalAlignment="Right" Margin="182,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Update_Emloyee"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,68,0,0"/>
+                    <TextBox x:Name="tb_Emloyee1" HorizontalAlignment="Center" Margin="0,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Телефон" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,136,0,0"/>
+                    <TextBox x:Name="tb_Emloyee2" HorizontalAlignment="Center" Margin="0,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Должность" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,209,0,0"/>
+                    <TextBox x:Name="tb_Emloyee3" HorizontalAlignment="Center" Margin="0,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Данные пользователей">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dg_User" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="dg_User_SelectionChanged"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Сотрудник" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1"/>
+                    <ComboBox x:Name="cbx_User" HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <Button Content="Создать" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Bottom" Width="88" Click="Button_Click_Create_User" Grid.Column="1"/>
+                    <Button Content="Удалить" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Delete_User"/>
+                    <Button Content="Изменить" HorizontalAlignment="Right" Margin="182,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Update_User"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Логин" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,68,0,0"/>
+                    <TextBox x:Name="tb_User1" HorizontalAlignment="Center" Margin="0,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Пароль" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,136,0,0"/>
+                    <TextBox x:Name="tb_User2" HorizontalAlignment="Center" Margin="0,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Роль" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,209,0,0"/>
+                    <ComboBox x:Name="cbx_User3" HorizontalAlignment="Center" Margin="0,252,0,0" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Поставщики">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dg_Supplier" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="dg_Supplier_SelectionChanged"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1"/>
+                    <TextBox x:Name="tb_Supplier" HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <Button Content="Создать" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Bottom" Width="88" Click="Button_Click_Create_Supplier" Grid.Column="1"/>
+                    <Button Content="Удалить" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Delete_Supplier"/>
+                    <Button Content="Изменить" HorizontalAlignment="Right" Margin="182,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Update_Supplier"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Почта" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,68,0,0"/>
+                    <TextBox x:Name="tb_Supplier1" HorizontalAlignment="Center" Margin="0,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Номер телефона" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,136,0,0"/>
+                    <TextBox x:Name="tb_Supplier2" HorizontalAlignment="Center" Margin="0,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

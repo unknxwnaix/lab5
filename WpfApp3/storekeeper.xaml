@@ -1,0 +1,92 @@
+﻿<Window x:Class="WpfApp3.storekeeper"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="storekeeper" Height="450" Width="830">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.ColumnSpan="2">
+            <TabItem Header="Заказы">
+                <Grid Background="#FFE5E5E5" Width="830">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dg_Order" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="dg_Order_SelectionChanged"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Работник" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1"/>
+                    <ComboBox x:Name="cbx_Order" HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <Button Content="Создать" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Bottom" Width="88" Click="Button_Click_Create_Order" Grid.Column="1"/>
+                    <Button Content="Удалить" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Delete_Order"/>
+                    <Button Content="Изменить" HorizontalAlignment="Right" Margin="182,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Update_Order" RenderTransformOrigin="0.514,0.08"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Дата" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,68,0,0"/>
+                    <TextBox x:Name="tb_Order1" HorizontalAlignment="Center" Margin="0,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Сумма" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,136,0,0"/>
+                    <TextBox x:Name="tb_Order2" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,174,0,0" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Покупатель" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,204,0,0"/>
+                    <ComboBox x:Name="cbx_Order3" HorizontalAlignment="Center" Margin="0,242,0,0"  VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Продукты поставщиков">
+                <Grid Background="#FFE5E5E5" Width="830">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dg_Supplier_Product" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="dg_Supplier_Product_SelectionChanged"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Поставщик" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1"/>
+                    <ComboBox x:Name="cbx_Supplier_Product" HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <Button Content="Создать" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Bottom" Width="88" Click="Button_Click_Create_Supplier_Product" Grid.Column="1"/>
+                    <Button Content="Удалить" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Delete_Supplier_Product"/>
+                    <Button Content="Изменить" HorizontalAlignment="Right" Margin="182,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Update_Supplier_Product"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Продукт" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,68,0,0"/>
+                    <ComboBox x:Name="cbx_Supplier_Product1" HorizontalAlignment="Center" Margin="0,106,0,0" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Цена" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,136,0,0"/>
+                    <TextBox x:Name="tb_Supplier_Product2" HorizontalAlignment="Center" Margin="0,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Платежи">
+                <Grid Background="#FFE5E5E5" Width="830">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dg_payment" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="dg_payment_SelectionChanged"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Сумма" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1"/>
+                    <ComboBox x:Name="cbx_payment" HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <Button Content="Создать" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Bottom" Width="88" Click="Button_Click_Create_payment" Grid.Column="1"/>
+                    <Button Content="Удалить" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Delete_payment"/>
+                    <Button Content="Изменить" HorizontalAlignment="Right" Margin="182,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Update_payment"/>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Детали заказа">
+                <Grid Background="#FFE5E5E5" Width="830">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dg_Order_Item" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="dg_Order_Item_SelectionChanged"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Сумма" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,68,0,0"/>
+                    <ComboBox x:Name="cbx_Order_Item" HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <Button Content="Создать" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Bottom" Width="88" Click="Button_Click_Create_Order_Item" Grid.Column="1"/>
+                    <Button Content="Удалить" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Delete_Order_Item"/>
+                    <Button Content="Изменить" HorizontalAlignment="Right" Margin="182,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Update_Order_Item"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Количество" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,136,0,0"/>
+                    <TextBox x:Name="tb_Order_Item2" TextWrapping="Wrap"  HorizontalAlignment="Center" Margin="0,174,0,0" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <ComboBox x:Name="cbx_Order_Item1" HorizontalAlignment="Center" Margin="0,106,0,0" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Продукт" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1"/>
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

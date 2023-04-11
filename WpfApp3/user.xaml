@@ -1,0 +1,80 @@
+﻿<Window x:Class="WpfApp3.user"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="admin" Height="500" Width="830">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.ColumnSpan="2">
+            <TabItem Header="Покупатели">
+                <Grid Background="#FFE5E5E5" Width="827">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dg_Customer" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="dg_Customers_SelectionChanged"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1"/>
+                    <TextBox x:Name="tb_Customer" HorizontalAlignment="Center" Margin="0,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <Button Content="Создать" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Bottom" Width="88" Click="Button_Click_Create_Customer" Grid.Column="1"/>
+                    <Button Content="Удалить" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Delete_Customer"/>
+                    <Button Content="Изменить" HorizontalAlignment="Right" Margin="182,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Update_Customer"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Адрес почтового ящика" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,68,0,0"/>
+                    <TextBox x:Name="tb_Customer1" HorizontalAlignment="Center" Margin="0,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Номер телефона" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,136,0,0"/>
+                    <TextBox x:Name="tb_Customer2" HorizontalAlignment="Center" Margin="0,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <Button Margin="0,404,275,0" VerticalAlignment="Bottom" Content="Выгрузить данные" Name="Upload_Btn" Grid.ColumnSpan="2" Click="Upload_Btn_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Продукты">
+                <Grid Background="#FFE5E5E5" Width="827">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dg_Product" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="dg_Product_SelectionChanged"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Название" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1"/>
+                    <TextBox x:Name="tb_Product" HorizontalAlignment="Center" Margin="0,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <Button Content="Создать" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Bottom" Width="88" Click="Button_Click_Create_Product" Grid.Column="1"/>
+                    <Button Content="Удалить" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Delete_Product"/>
+                    <Button Content="Изменить" HorizontalAlignment="Right" Margin="182,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Update_Product"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Описание" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,68,0,0"/>
+                    <TextBox x:Name="tb_Product1" HorizontalAlignment="Center" Margin="0,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Цена" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,136,0,0"/>
+                    <TextBox x:Name="tb_Product2" HorizontalAlignment="Center" Margin="0,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Акция" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,205,0,0"/>
+                    <ComboBox x:Name="cbx_Product3" HorizontalAlignment="Center" Margin="0,243,0,0" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Акции">
+                <Grid Background="#FFE5E5E5" Width="827">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dg_Promotion" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="dg_Promotion_SelectionChanged"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Название" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1"/>
+                    <TextBox x:Name="tb_Promotion" HorizontalAlignment="Center" Margin="0,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <Button Content="Создать" HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Bottom" Width="88" Click="Button_Click_Create_Promotion" Grid.Column="1"/>
+                    <Button Content="Удалить" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Delete_Promotion"/>
+                    <Button Content="Изменить" HorizontalAlignment="Right" Margin="182,354,0,0" VerticalAlignment="Bottom" Width="88" Grid.Column="1" Click="Button_Click_Update_Promotion"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Описание" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,68,0,0"/>
+                    <TextBox x:Name="tb_Promotion1" HorizontalAlignment="Center" Margin="0,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Цена" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,136,0,0"/>
+                    <TextBox x:Name="tb_Promotion2" HorizontalAlignment="Center" Margin="0,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Акция" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,205,0,0"/>
+                    <TextBox x:Name="tb_Promotion3" HorizontalAlignment="Center" Margin="0,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Процент скидки" VerticalAlignment="Top" Height="38" Width="267" Grid.Column="1" Margin="0,273,0,0"/>
+                    <TextBox x:Name="tb_Promotion4" HorizontalAlignment="Center" Margin="0,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
